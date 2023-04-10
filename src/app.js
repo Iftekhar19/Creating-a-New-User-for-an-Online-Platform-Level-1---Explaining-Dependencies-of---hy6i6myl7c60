@@ -27,9 +27,9 @@ function validate(req,res,next)
     "message":"invalid user data"
    })
  }
- else{
+
    next();
- }
+
 }
 
 
