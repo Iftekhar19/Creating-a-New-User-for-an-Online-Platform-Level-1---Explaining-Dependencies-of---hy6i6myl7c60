@@ -36,7 +36,7 @@ function validate(req,res,next)
 // Write POST endpoint for registering new user
 app.post("/api/v1/details",validate,(req,res)=>
 {
-   return res.status(200).json({
+   return res.status(201).json({
       "status": "Success",
 
     "message": "User registered successfully",
