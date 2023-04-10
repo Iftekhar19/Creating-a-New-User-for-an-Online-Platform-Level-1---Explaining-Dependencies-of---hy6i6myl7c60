@@ -25,7 +25,7 @@ function validate(req,res,next)
  {
   return  res.status(400).json({
     "status":"failed",
-    "message":"Invalid user data"
+    "message":"invalid user data"
    })
  }
 
@@ -37,6 +37,7 @@ function validate(req,res,next)
 // Write POST endpoint for registering new user
 app.post("/api/v1/details",validate,(req,res)=>
 {
+  userDetails.push({...req.body,id:userDetails.length+1});
    return res.status(201).json({
       "status": "Success",
 
