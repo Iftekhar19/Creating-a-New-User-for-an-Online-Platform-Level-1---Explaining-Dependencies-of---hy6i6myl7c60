@@ -20,12 +20,13 @@ function validate(req,res,next)
     number:Joi.number().required()
   })
   const ans=schema.validate(req.body)
-  console.log(ans.error)
+  console.log(ans.error.details)
  if(ans.error)
  {
   return  res.status(400).json({
     "status":"failed",
-    "message":"invalid user data"
+    "message":"invalid user data",
+    "details":ans.error.details
    })
  }
 
