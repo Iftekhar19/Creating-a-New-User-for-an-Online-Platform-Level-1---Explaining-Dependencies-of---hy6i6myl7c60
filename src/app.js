@@ -19,8 +19,9 @@ function validate(req,res,next)
     mail:Joi.string().required(),
     number:Joi.number().required()
   })
-  const ans=schema.validate(req.body)
-  // console.log(ans.error.details)
+  const data={name:req.body.name,number:req.body.number,mail:req.body.mail}
+  const ans=schema.validate(data)
+  console.log(data)
  if(ans.error)
  {
   return  res.status(400).json({
@@ -39,7 +40,7 @@ function validate(req,res,next)
 
 
 // Write POST endpoint for registering new user
-app.post("/api/v1/details",validate, (req, res) => {
+app.post("/api/v1/details",(req, res) => {
 
   const newId = userDetails[userDetails.length - 1].id + 1;
  
